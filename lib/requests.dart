@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 class WeatherRequest{
   static const String apiKey = '5fef9c9b3cf8f7a4c22814d358eeb733';
 
-  final _dio = Dio();
+  final Dio _dio = Dio();
 
   Future<Response> request(String url, {dynamic body, String? method}) async{
     var res = _dio.request(url,
@@ -27,6 +27,6 @@ class WeatherRequest{
     Response response = await request('https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey&units=metric',
       method: 'GET');
 
-    return response.data;
+    return await response.data.toString();
   }
 }

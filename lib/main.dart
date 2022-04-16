@@ -4,7 +4,7 @@ import 'weather.dart';
 
 void main(){
   runApp(MyApp());
-  print(WeatherRequest().getWeather().toString());
+  test();
 }
 
 class MyApp extends StatelessWidget {
@@ -23,4 +23,9 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+void test() async{
+  String a = await WeatherRequest().getWeather();
+  print(a);
 }
